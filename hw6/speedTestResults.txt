@@ -1,0 +1,28 @@
+InsertRandomSpeedTest
+ULLMap
+5000 n 0.13 s
+10000 n 0.50 s
+2000000 n stack overflow
+BSTMap
+5000 n 0.01 s
+10000 n 0.02 s
+2000000 n 6.12 s
+TreeMap
+5000 n 0.01 s
+10000 n 0.02 s
+2000000 n 4.76 s
+InsertInOrderSpeedTest
+ULLMap
+5000 n 0.24 s
+10000 n 1.52 s
+2000000 n stack overflow
+BSTMap
+5000 n 0.33 s
+10000 n 2.32 s
+2000000 n stack overflow
+TreeMap
+5000 n 0.02 s
+10000 n 0.02 s
+2000000 n 4.09 s
+
+I found that adding data to TreeMaps in general are the fastest. For small data, Binary Search Trees seem to work at a slightly slower speed for unsorted information compared to TreeMaps. It seems however, that Binary Search Trees are not exactly the most suited for sorting information. It's even slower than an unordered linked list map. TreeMaps are still better than ULLMaps and BSTMaps in both the random and sorted cases.

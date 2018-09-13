@@ -1,0 +1,8 @@
+1.False it is O(n)
+2.True when the number of nodes increases by 1, steps go up by one, by 4, step goes up by 2, by 8, steps go up by 3
+3.False it is Theta(logN)
+4.True can't get worse
+5.False it is O(n)
+6.True searching is Theta LogN and inserting is Theta LogN so adding them together is 2LogN
+7.False it should be 2LogN since the function is called twice
+8.The big O notation of mystery function should be O(Z) since for some positive integer, the function will always recursively increment z by -1 in the absolute worst case scenario function so the function at most will be called around Z times.

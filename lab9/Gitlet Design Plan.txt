@@ -1,0 +1,88 @@
+Basic Storage Design Plan for Gitlet
+
+
+Overview
+-------
+. .gitlet: folder that has the git info
+. .gitlet/log.java: file that has all the changes logged with references to changes.ser
+. .gitlet/changes.ser: files that has snapshots of all the information changed
+. .gitlet/temp.txt: temporary information until next commit is put in.
+. .gitlet/oldtemp.txt: previous commits file references
+Sequential Example
+-------
+
+For each of the commands below, describe in detail what files on your computer change after the command is executed. Only list changes made to files. Do not list details regarding the reading of files.
+
+$ java Gitlet init
+
+ . If it does not already exist, a new folder called .gitlet is created in the current directory.
+ . creates a log.txt file
+ . creates a changes.ser file
+ . creates a temp.ser file
+$ java Gitlet add dog.txt
+ . adds dog.txt file name into temp.txt
+
+
+$ java Gitlet commit “initial commit of dog.txt”
+ . adds node to my linked list in log.java which includes the commit message and also the txt reference to a changesX.ser file with X a commit number
+ . creates a changesX.ser file by reading the files referenced in temp.txt and reading the information
+ . add files from temp.ser file into oldtemp.txt file
+ . wipes the information from temp.txt file
+$ java Gitlet add dog.txt
+ . adds dog.txt filename into temp.txt
+
+
+$ cp manyDogs.txt dog.txt
+$ java Gitlet add dog.txt
+ . does nothing since dot.txt is already in temp.txt
+
+
+
+$ java Gitlet commit “replaced dog.txt with manyDogs”
+ . adds a new node to my linked list in log.java which includes the commit message and also the txt reference to a changesX.ser file with X a commit number
+ . creates a changes2.ser file by reading the files referenced in oldtemp.txt and reading the information
+ . changes changes2.ser file by overwriting files with a new add so that the new information is logged
+ . add files from temp.ser file into oldtemp.txt file
+ . wipes the information from temp.ser file
+$ java Gitlet add manyDogs.txt
+ . adds manyDogs.txt into the temp.txt
+
+
+
+$ java Gitlet add ketchupFriend.txt
+ . adds ketchupFriend.txt into the temp.txt
+
+
+$ java Gitlet commit “added manyDogs and ketchupFriend”
+ . adds a new node to my linked list in log.java which includes the commit message and also the txt reference to a changesX.ser file
+ . creates a changes3.ser file by reading the files referenced in oldtemp.txt and reading the information so it inherets all the files from previous commit
+ . changes changes3.ser file by overwriting files with a new add so that the new information is logged so the files manyDogs and ketchupFriend are added to the ser file
+ . add files from temp.ser file into oldtemp.txt file
+ . wipes the information from temp.ser file
+$ java Gitlet commit YOLO
+ . Prints "No changes staged for commit"
+
+
+$ cp doge.txt manyDogs.txt
+$ java Gitlet add manyDogs.txt
+. add manyDogs.txt to temp.txt
+
+
+$ java Gitlet commit “replaced manyDogs with doge”
+ . adds a new node to my linked list in log.java which includes the commit message and also the txt reference to a changesX.ser file
+ . creates a changes4.ser file by reading the files referenced in oldtemp.txt and reading the information so it inherets all the files from previous commit by going to the old change ser file
+ . changes changes4.ser file so the file manyDogs are added to the ser file
+ . add files from temp.ser file into oldtemp.txt file
+ . wipes the information from temp.ser file
+
+
+$ java Gitlet add dog.txt
+. adds dog.txt to temp.txt file
+
+
+$ java Gitlet commit “added dog yet again”
+ . adds a new node to my linked list in log.java which includes the commit message and also the txt reference to a changesX.ser file
+ . creates a changes5.ser file by reading the files referenced in oldtemp.txt and reading the information so it inherets all the files from previous commit by going to the old change ser file
+ . changes changes5.ser file so that dog.txt in the old commit is overwritten by the updated dog.txt
+ . add files from temp.ser file into oldtemp.txt file
+ . wipes the information from temp.ser file

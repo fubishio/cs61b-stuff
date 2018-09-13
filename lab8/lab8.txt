@@ -1,0 +1,90 @@
+1. Estimated running times (in big-theta notation):
+function1: Theta(N^2)
+function2: Theta(N)
+function3: Theta(N^3)
+
+Data:
+               n         time
+function1:
+1000 n 0.014 s time
+2000 n 0.022 s time
+3000 n 0.039 s time
+4000 n 0.050 s time
+function2:
+10000 n 0.002 s time
+100000 n 0.008 s time
+1000000 n 0.022 s time
+10000000 n 0.083 s time
+function3:
+50 n 0.01 s time
+100 n 0.022 s time
+500 n 0.905 s time
+1000 n 7.009 s time
+Experimentally determined running time, assuming runtime is of the form ~aN^b:
+
+function1: ~3.4493*10^-4N^0.6
+function2: ~1.39198*10^-5N^0.5393
+function3: ~2.21644*10^-7N^2.5
+
+2. Data:
+                              n             time
+Large prime numbers taken from http://www.bigprimes.net/archive/prime/14000000/
+function4:
+32416190071 n 0.004 s time
+32416189717 n 0.004 s time
+32416188223 n 0.003 s time
+function5 (best case):
+2 n 0.001 s time
+5 n 0.001 s time
+800 n 0.001 s time
+function5 (worst case):
+1000000000000 n 0.007 s time
+2000000000000 n 0.009 s time
+100000000000000 n 0.01 s time
+1000000000000000 n 0.011 s time
+3. Data:
+                              n         time
+ArrayList:
+500 n 0.005 s time
+5000 n 0.036 s time
+150000 n 19.689 s time
+20000 n 0.295 s time
+HashSet:
+5000000 n 3.577 s time
+500 n 0.004 s time
+5000 n 0.009 s time
+150000 n 0.099 s time
+20000 n 0.029 s time
+Experimentally determined running time:
+
+ArrayList:4.080825*10^-5 s
+HashSet:2.52508*10^-6 s
+
+4. Data:
+                                       n         time
+Insertion sort with array list:
+5000 n 0.039 s time
+10000 n 0.082 s time
+50000 n 1.933 s time
+100000 n 9.532 s time
+Insertion sort with linked list:
+500 n 0.052 s time
+1000 n 0.324 s time
+2000 n 2.456 s time
+3000 n 8.77 s time
+4000 n 22.027 s time
+Experimentally determined running time:
+
+Insertion sort with array:        O(N)
+Insertion sort with linked list:  O(logN)
+
+5. Initial guess: O(N^1/2)
+I just added this function to Asymptotics
+Data:             n               time
+100000 n 0.011 s time
+200000 n 0.027 s time
+1000000 n 0.24 s time
+2000000 n 0.687 s time
+Experimentally determined running time: O(N)
+ignore constant
+
